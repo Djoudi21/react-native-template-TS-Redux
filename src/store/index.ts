@@ -1,7 +1,7 @@
-import {combineReducers, configureStore} from '@reduxjs/toolkit';
-import templateReducer from './templateSlice';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import userReducer from './userSlice';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {persistReducer, persistStore} from 'redux-persist';
+import { persistReducer, persistStore } from 'redux-persist';
 import thunk from 'redux-thunk';
 
 const persistConfig = {
@@ -11,7 +11,7 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  template: templateReducer,
+  user: userReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
