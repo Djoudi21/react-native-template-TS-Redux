@@ -2,15 +2,15 @@ import { createSlice } from '@reduxjs/toolkit';
 
 type initialState = {
   tokens: {
-    accessToken: string;
-    refreshToken: string;
+    accessToken: string | null;
+    refreshToken: string | null;
   };
 };
 
 const initialState = {
   tokens: {
-    accessToken: '',
-    refreshToken: '',
+    accessToken: null,
+    refreshToken: null,
   },
 };
 export const userSlice = createSlice({

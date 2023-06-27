@@ -4,7 +4,7 @@ import React from 'react';
 export default function HomeScreen() {
   return (
     <SafeAreaView>
-      <Text>Home</Text>
+      <Text>HOME</Text>
     </SafeAreaView>
   );
 }
