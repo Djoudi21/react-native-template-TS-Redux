@@ -1,9 +1,9 @@
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import React from 'react';
-import useAuth from '../hooks/useAuth';
+import useLogin from '../hooks/useLogin';
 
 export function LoginScreen({ navigation }: any) {
-  const auth = useAuth({ navigation });
+  const auth = useLogin({ navigation });
   return (
     <View style={styles.container}>
       <Text>Connectez-vous</Text>

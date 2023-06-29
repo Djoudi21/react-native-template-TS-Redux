@@ -1,10 +1,10 @@
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import React from 'react';
 // import Icon from 'react-native-vector-icons/FontAwesome';
-import useAuth from '../hooks/useAuth';
+import useLogin from '../hooks/useLogin';
 
 export function RegisterScreen({ navigation }: any) {
-  const auth = useAuth({ navigation });
+  const auth = useLogin({ navigation });
 
   return (
     <View style={styles.container}>

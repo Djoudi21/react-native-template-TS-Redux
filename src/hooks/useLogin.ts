@@ -1,7 +1,11 @@
 import { useRef, useState } from 'react';
+import { LoginUseCase } from '../use-cases/loginUseCase/loginUseCase';
+import { InMemoryLoginRepository } from '../use-cases/loginUseCase/inMemoryLoginRepository';
+import { useDispatch } from 'react-redux';
+import { setTokens } from '../store/userSlice';
 // import { useDispatch } from 'react-redux';
 
-export default function useAuth({ navigation }: any) {
+export default function useLogin({ navigation }: any) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isEmailValid, setIsEmailValid] = useState(true);
@@ -10,9 +14,9 @@ export default function useAuth({ navigation }: any) {
   const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
   const [formSubmissionErrorMessage, setFormSubmissionErrorMessage] =
     useState('');
-  // const dispatch = useDispatch();
-  // const axiosUserRepository = new AxiosUserRepository();
-  // const userService = new UserService(axiosUserRepository);
+  const dispatch = useDispatch();
+  const inMemoryLoginRepository = new InMemoryLoginRepository();
+  const loginUseCase = new LoginUseCase(inMemoryLoginRepository);
   const emailTextInputRef = useRef(null);
   const passwordTextInputRef = useRef(null);
 
@@ -37,12 +41,13 @@ export default function useAuth({ navigation }: any) {
       password,
     };
     try {
-      // const response = await userService.loginUseCase(credentials);
-      // const tokens = response.data;
-      // dispatch(setTokens(tokens));
-      // navigation.push('Home');
-      //fetch user thcats and dispatch in store
-      //set current tchat id to be an tchat with no messages
+      const response = await loginUseCase.login(credentials);
+      if (response.data.status !== 200) {
+        return null;
+      }
+      const tokens = response.data.tokens;
+      dispatch(setTokens(tokens));
+      navigation.push('Home');
     } catch (e) {
       // @ts-ignore
       const errorMessage = setSubmissionErrorMessage(e.response.data.message);
