@@ -37,7 +37,7 @@ export default function useAuth({ navigation }: any) {
       password,
     };
     try {
-      // const response = await userService.login(credentials);
+      // const response = await userService.loginUseCase(credentials);
       // const tokens = response.data;
       // dispatch(setTokens(tokens));
       // navigation.push('Home');
