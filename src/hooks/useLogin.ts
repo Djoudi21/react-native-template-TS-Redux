@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { LoginUseCase } from '../use-cases/loginUseCase/loginUseCase';
-import { InMemoryLoginRepository } from '../use-cases/loginUseCase/inMemoryLoginRepository';
+import { InMemoryUserRepository } from '../repositories/inMemoryUserRepository';
 import { useDispatch } from 'react-redux';
 import { setTokens } from '../store/userSlice';
 // import { useDispatch } from 'react-redux';
@@ -15,7 +15,7 @@ export default function useLogin({ navigation }: any) {
   const [formSubmissionErrorMessage, setFormSubmissionErrorMessage] =
     useState('');
   const dispatch = useDispatch();
-  const inMemoryLoginRepository = new InMemoryLoginRepository();
+  const inMemoryLoginRepository = new InMemoryUserRepository();
   const loginUseCase = new LoginUseCase(inMemoryLoginRepository);
   const emailTextInputRef = useRef(null);
   const passwordTextInputRef = useRef(null);
