@@ -15,8 +15,8 @@ export default function useLogin({ navigation }: any) {
   const [formSubmissionErrorMessage, setFormSubmissionErrorMessage] =
     useState('');
   const dispatch = useDispatch();
-  const inMemoryLoginRepository = new InMemoryUserRepository();
-  const loginUseCase = new LoginUseCase(inMemoryLoginRepository);
+  const userRepository = new InMemoryUserRepository();
+  const loginUseCase = new LoginUseCase(userRepository);
   const emailTextInputRef = useRef(null);
   const passwordTextInputRef = useRef(null);
 
