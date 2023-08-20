@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { RootStackRouter } from './routes/RootStack';
 import { NavigationContainer } from '@react-navigation/native';
 
-function App(): React.ReactElement {
+export function App(): React.ReactElement {
   return (
     <Provider store={store}>
       <PersistGate loading={<Text>Loading...</Text>} persistor={persistor}>
@@ -17,5 +17,3 @@ function App(): React.ReactElement {
     </Provider>
   );
 }
-
-export default App;
