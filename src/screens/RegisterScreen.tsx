@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Pressable, Text, TextInput, View } from 'react-native';
 import React from 'react';
 import useLogin from '../hooks/useLogin';
 import { s } from 'react-native-wind';
@@ -75,48 +75,3 @@ export function RegisterScreen({ navigation }: any) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#FDFDFD',
-    gap: 20,
-  },
-  inputContainer: {
-    width: '50%',
-  },
-  input: {
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderRadius: 5,
-    padding: 5,
-  },
-  button: {
-    backgroundColor: '#212121',
-    borderRadius: 5,
-    width: '50%',
-    padding: 10,
-  },
-  labelButton: {
-    color: '#FDFDFD',
-    textAlign: 'center',
-  },
-  errorContainer: {
-    marginTop: 5,
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 10,
-  },
-  errorMessage: {
-    color: 'red',
-  },
-  registerLink: {
-    color: '#212121',
-    fontWeight: '700',
-    textAlign: 'center',
-  },
-});
