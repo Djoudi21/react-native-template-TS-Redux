@@ -3,7 +3,6 @@ import { LoginUseCase } from '../use-cases/loginUseCase/loginUseCase';
 import { InMemoryUserRepository } from '../repositories/inMemoryUserRepository';
 import { useDispatch } from 'react-redux';
 import { setTokens } from '../store/userSlice';
-// import { useDispatch } from 'react-redux';
 
 export default function useLogin({ navigation }: any) {
   const [email, setEmail] = useState('');
@@ -55,21 +54,6 @@ export default function useLogin({ navigation }: any) {
     }
   }
 
-  function setInputBorderColor(inputName: string) {
-    const valid = {
-      borderColor: '#212121',
-    };
-
-    const invalid = {
-      borderColor: 'red',
-    };
-    if (inputName === 'email') {
-      return isEmailValid ? valid : invalid;
-    } else {
-      return isPasswordValid ? valid : invalid;
-    }
-  }
-
   function emailValidation() {
     if (!email.length) {
       setIsEmailValid(false);
@@ -117,10 +101,8 @@ export default function useLogin({ navigation }: any) {
 
   return {
     handleSubmit,
-    setInputBorderColor,
     emailValidation,
     passwordValidation,
-    setSubmissionErrorMessage,
     handleRedirect,
     handleFocusPasswordInput,
     handleFocusEmailInput,

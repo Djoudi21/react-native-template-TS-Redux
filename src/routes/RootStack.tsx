@@ -18,10 +18,10 @@ export function RootStackRouter() {
         if (tokens.accessToken !== null) {
           setInitialRoute('Home');
         } else {
-          setInitialRoute('Home');
+          setInitialRoute('Login');
         }
       } catch (error) {
-        setInitialRoute('Home');
+        setInitialRoute('Login');
       }
     }
 
